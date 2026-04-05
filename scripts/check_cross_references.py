@@ -3,6 +3,7 @@
 
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 IGNORE_DIRS = {
@@ -27,10 +28,22 @@ def iter_md_files():
 
 
 def heading_to_anchor(heading: str) -> str:
-    # Match GitHub's anchor generation: strip non-ASCII (emoji), strip punctuation,
-    # lowercase, replace spaces with hyphens, strip leading/trailing hyphens.
-    heading_ascii = heading.encode("ascii", "ignore").decode()
-    return re.sub(r"[^\w\s-]", "", heading_ascii.lower()).replace(" ", "-").rstrip("-")
+    """Generate a GitHub-style anchor for a Markdown heading.
+
+    GitHub preserves letters and numbers from non-ASCII scripts such as Chinese,
+    while stripping most punctuation and symbols. We normalize first so composed
+    characters behave consistently across platforms.
+    """
+    normalized = unicodedata.normalize("NFKC", heading).strip().casefold()
+    anchor_chars = []
+
+    for char in normalized:
+        category = unicodedata.category(char)
+        if char in {" ", "-"} or category[0] in {"L", "N"}:
+            anchor_chars.append(char)
+
+    anchor = "".join(anchor_chars)
+    return re.sub(r"\s", "-", anchor)
 
 
 def strip_code_blocks(content: str) -> str:
@@ -46,7 +59,7 @@ def main() -> int:
     errors = []
 
     for file_path in iter_md_files():
-        content = file_path.read_text()
+        content = file_path.read_text(encoding="utf-8")
         # Strip code blocks before scanning for links/anchors to avoid false positives
         # from documentation examples inside code fences.
         scannable = strip_code_blocks(content)
