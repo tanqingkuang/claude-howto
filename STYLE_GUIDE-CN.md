@@ -5,7 +5,7 @@
 
 # 风格指南
 
-> 为 Claude How To 贡献内容时遵循的约定和格式规则。请按照这份指南保持内容一致、专业且易于维护。
+> 为 Claude How To 贡献内容时遵循的约定和格式规则。请按照这份指南保持内容一致、术语统一、专业且易于维护。
 
 ---
 
@@ -161,11 +161,11 @@
 对重要说明使用带粗体前缀的引述块：
 
 ```markdown
-> **Note**: Custom slash commands have been merged into skills since v2.0.
+> **Note**: 自 v2.0 起，自定义斜杠命令已并入 Skills。
 
-> **Important**: Never commit API keys or credentials.
+> **Important**: 永远不要提交 API key 或凭据。
 
-> **Tip**: Combine memory with skills for maximum effectiveness.
+> **Tip**: 将 memory 与 Skills 结合使用，效果最佳。
 ```
 
 支持的提示类型：**Note**、**Important**、**Tip**、**Warning**。
@@ -552,7 +552,11 @@ agent: Explore                     # Agent type for context: fork
 ### 词汇
 
 - 使用 “Claude Code”（不要写 “Claude CLI” 或 “the tool”）
-- 使用 “skill”（不要写 “custom command”，这是旧术语）
+- 使用 “斜杠命令（slash commands）” 指代用户触发的快捷命令
+- 使用 “Skill / Skills” 指代可复用能力；只在引用具体文件时使用小写 `skill`
+- 使用 “子代理（subagents）” 指代专门化 AI 助手
+- 使用 “MCP 服务器” 指代外部集成服务
+- 使用 “打印模式（print mode）” 指代 `claude -p` 的非交互运行方式
 - 使用 “lesson” 或 “guide” 来称呼编号章节
 - 使用 “example” 来称呼单个功能文件
 

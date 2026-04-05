@@ -6,7 +6,7 @@ tags: plugins, documentation, automation
 
 # 文档生成插件
 
-这个插件把文档相关的命令、subagents、模板和 MCP 服务器打包在一起，帮助你生成、同步和校验文档。
+这个插件将文档相关的命令、子代理、模板和 MCP 服务器打包在一起，用于生成、同步和校验文档。
 
 ## 特性
 
@@ -24,10 +24,10 @@ tags: plugins, documentation, automation
 - [commands/sync-docs-CN.md](commands/sync-docs-CN.md) - 同步文档
 - [commands/validate-docs-CN.md](commands/validate-docs-CN.md) - 校验文档
 
-### Subagents
-- [agents/api-documenter-CN.md](agents/api-documenter-CN.md) - API 文档 subagent
-- [agents/code-commentator-CN.md](agents/code-commentator-CN.md) - 代码注释 subagent
-- [agents/example-generator-CN.md](agents/example-generator-CN.md) - 示例生成 subagent
+### 子代理
+- [agents/api-documenter-CN.md](agents/api-documenter-CN.md) - API 文档子代理
+- [agents/code-commentator-CN.md](agents/code-commentator-CN.md) - 代码注释子代理
+- [agents/example-generator-CN.md](agents/example-generator-CN.md) - 示例生成子代理
 
 ### 模板
 - [templates/adr-template-CN.md](templates/adr-template-CN.md) - ADR 模板
@@ -72,7 +72,7 @@ tags: plugins, documentation, automation
 - 想同步多个文档之间的一致性
 - 想维护代码注释和示例质量
 
-## 需求
+## 要求
 
 - Claude Code 1.0+
 - GitHub 访问权限（可选）
@@ -84,7 +84,7 @@ tags: plugins, documentation, automation
 
 Claude：
 1. 扫描 /src/api/ 下的所有 API 端点
-2. 委派给 api-documenter subagent
+2. 委派给 api-documenter 子代理
 3. 提取函数签名和 JSDoc
 4. 按模块 / 端点组织内容
 5. 使用 api-endpoint-CN.md 模板
@@ -120,8 +120,8 @@ export GITHUB_TOKEN="your_github_token"
 
 ## 最佳实践
 
-- 文档尽量贴近代码
-- 随着代码变化同步更新文档
+- 让文档尽可能贴近代码
+- 随着代码变化及时更新文档
 - 提供可直接执行的示例
 - 定期校验文档有效性
 - 使用模板保持一致性

@@ -19,11 +19,11 @@
 - [ ] 我可以启动 Claude Code 并与它对话（`claude`）
 - [ ] 我创建或编辑过 `CLAUDE.md`
 - [ ] 我至少使用过 3 个内置 slash command（例如 `/help`、`/compact`、`/model`）
-- [ ] 我创建过自定义 slash command 或 skill（`SKILL.md`）
-- [ ] 我配置过 MCP server（例如 GitHub、数据库）
+- [ ] 我创建过自定义斜杠命令或 Skill（`SKILL.md`）
+- [ ] 我配置过 MCP 服务器（例如 GitHub、数据库）
 - [ ] 我在 `~/.claude/settings.json` 中设置过 hooks
-- [ ] 我创建或使用过自定义 subagents（`.claude/agents/`）
-- [ ] 我使用过 print mode（`claude -p`）做脚本或 CI/CD
+- [ ] 我创建或使用过自定义子代理（`.claude/agents/`）
+- [ ] 我使用过打印模式（`claude -p`）做脚本或 CI/CD
 
 **你的水平：**
 
@@ -66,7 +66,7 @@ graph TD
 
     subgraph L2["🔵 Level 2：Intermediate - 构建工作流"]
         direction LR
-        C["2A：自动化<br/>Skills + Hooks"] --> D["2B：集成<br/>MCP + Subagents"]
+        C["2A：自动化<br/>Skills + Hooks"] --> D["2B：集成<br/>MCP + 子代理"]
     end
 
     subgraph L3["🔴 Level 3：Advanced - 高阶用户"]
@@ -98,11 +98,11 @@ graph TD
 
 | 步骤 | 功能 | 复杂度 | 时间 | 水平 | 依赖 | 为什么学它 | 关键收益 |
 |------|---------|-----------|------|-------|--------------|----------------|--------------|
-| **1** | [Slash Commands](01-slash-commands/README-CN.md) | ⭐ Beginner | 30 分钟 | Level 1 | 无 | 快速获得生产力提升（55+ 内置命令 + 5 个 bundled skills） | 立即自动化、统一团队规范 |
+| **1** | [斜杠命令](01-slash-commands/README-CN.md) | ⭐ Beginner | 30 分钟 | Level 1 | 无 | 快速获得生产力提升（55+ 内置命令 + 5 个 bundled skills） | 立即自动化、统一团队规范 |
 | **2** | [Memory](02-memory/README-CN.md) | ⭐⭐ Beginner+ | 45 分钟 | Level 1 | 无 | 所有功能的基础 | 持久上下文、偏好设置 |
 | **3** | [Checkpoints](08-checkpoints/README-CN.md) | ⭐⭐ Intermediate | 45 分钟 | Level 1 | 会话管理 | 安全探索 | 试验、恢复 |
-| **4** | [CLI Basics](10-cli/README-CN.md) | ⭐⭐ Beginner+ | 30 分钟 | Level 1 | 无 | 核心 CLI 用法 | 交互式与 print mode |
-| **5** | [Skills](03-skills/README-CN.md) | ⭐⭐ Intermediate | 1 小时 | Level 2 | Slash Commands | 自动化专业能力 | 可复用能力、一致性 |
+| **4** | [CLI Basics](10-cli/README-CN.md) | ⭐⭐ Beginner+ | 30 分钟 | Level 1 | 无 | 核心 CLI 用法 | 交互式与打印模式 |
+| **5** | [Skills](03-skills/README-CN.md) | ⭐⭐ Intermediate | 1 小时 | Level 2 | 斜杠命令 | 自动化专业能力 | 可复用能力、一致性 |
 | **6** | [Hooks](06-hooks/README-CN.md) | ⭐⭐ Intermediate | 1 小时 | Level 2 | 工具、命令 | 工作流自动化（25 个事件、4 种类型） | 校验、质量门禁 |
 | **7** | [MCP](05-mcp/README-CN.md) | ⭐⭐⭐ Intermediate+ | 1 小时 | Level 2 | 配置 | 实时数据访问 | 实时集成、API |
 | **8** | [Subagents](04-subagents/README-CN.md) | ⭐⭐⭐ Intermediate+ | 1.5 小时 | Level 2 | Memory、命令 | 处理复杂任务（包含 Bash 在内的 6 个内置 agent） | 委派、专业分工 |
@@ -124,13 +124,13 @@ graph TD
 <a id="milestone-1a-first-commands-memory"></a>
 ### 里程碑 1A：第一个命令与 Memory
 
-**主题**：Slash Commands + Memory
+**主题**：斜杠命令 + Memory
 **时间**：1-2 小时
 **复杂度**：⭐ Beginner
 **目标**：通过自定义命令和持久上下文，快速提升效率
 
 #### 你将完成什么
-✅ 为重复性任务创建自定义 slash commands
+✅ 为重复性任务创建自定义斜杠命令
 ✅ 为团队规范设置项目 memory
 ✅ 配置个人偏好
 ✅ 理解 Claude 如何自动加载上下文
@@ -172,7 +172,7 @@ cp 02-memory/project-CLAUDE-CN.md ./CLAUDE.md
 
 #### 你将完成什么
 ✅ 创建和恢复 checkpoints，安全试验
-✅ 理解交互模式与 print mode
+✅ 理解交互模式与打印模式
 ✅ 使用基本 CLI 参数和选项
 ✅ 通过管道处理文件
 
@@ -195,7 +195,7 @@ cat error.log | claude -p "explain this error"
 
 #### 成功标准
 - [ ] 成功创建并回退到一个 checkpoint
-- [ ] 使用过交互模式和 print mode
+- [ ] 使用过交互模式和打印模式
 - [ ] 把文件通过管道传给 Claude 做分析
 - [ ] 明白什么时候该用 checkpoints 做安全试验
 
@@ -219,7 +219,7 @@ cat error.log | claude -p "explain this error"
 
 开始 Level 2 之前，先确认你已经掌握这些 Level 1 内容：
 
-- [ ] 会创建和使用 slash commands（[01-slash-commands/README-CN.md](01-slash-commands/README-CN.md)）
+- [ ] 会创建和使用斜杠命令（[01-slash-commands/README-CN.md](01-slash-commands/README-CN.md)）
 - [ ] 会通过 `CLAUDE.md` 设置项目 memory（[02-memory/README-CN.md](02-memory/README-CN.md)）
 - [ ] 知道如何创建和恢复 checkpoints（[08-checkpoints/README-CN.md](08-checkpoints/README-CN.md)）
 - [ ] 会在命令行使用 `claude` 和 `claude -p`（[10-cli/README-CN.md](10-cli/README-CN.md)）
@@ -246,7 +246,7 @@ cat error.log | claude -p "explain this error"
 #### 实战练习
 
 ```bash
-# 练习 1：安装一个 skill
+# 练习 1：安装一个 Skill
 cp -r 03-skills/code-review ~/.claude/skills/
 
 # 练习 2：设置 hooks
@@ -274,12 +274,12 @@ chmod +x ~/.claude/hooks/pre-tool-check.sh
 ```
 
 #### 成功标准
-- [ ] 在相关场景下，代码审查 skill 会自动触发
+- [ ] 在相关场景下，代码审查 Skill 会自动触发
 - [ ] PreToolUse hook 会在工具执行前运行
-- [ ] 你理解 skill 自动触发和 hook 事件触发的区别
+- [ ] 你理解 Skill 自动触发和 hook 事件触发的区别
 
 #### 下一步
-- 创建你自己的 custom skill
+- 创建你自己的自定义 Skill
 - 为工作流增加更多 hooks
 - 阅读：[03-skills/README-CN.md](03-skills/README-CN.md)
 - 阅读：[06-hooks/README-CN.md](06-hooks/README-CN.md)
@@ -288,9 +288,9 @@ chmod +x ~/.claude/hooks/pre-tool-check.sh
 
 ---
 
-### 里程碑 2B：集成（MCP + Subagents）
+### 里程碑 2B：集成（MCP + 子代理）
 
-**主题**：MCP + Subagents
+**主题**：MCP + 子代理
 **时间**：2-3 小时
 **复杂度**：⭐⭐⭐ Intermediate+
 **目标**：集成外部服务，并把复杂任务委派出去
@@ -298,7 +298,7 @@ chmod +x ~/.claude/hooks/pre-tool-check.sh
 #### 你将完成什么
 ✅ 从 GitHub、数据库等位置访问实时数据
 ✅ 把工作委派给专门化 AI agents
-✅ 明白什么时候该用 MCP，什么时候该用 subagents
+✅ 明白什么时候该用 MCP，什么时候该用子代理
 ✅ 构建集成式工作流
 
 #### 实战练习
@@ -311,7 +311,7 @@ claude mcp add github -- npx -y @modelcontextprotocol/server-github
 # 练习 2：测试 MCP 集成
 # 在 Claude Code 中：/mcp__github__list_prs
 
-# 练习 3：安装 subagents
+# 练习 3：安装子代理
 mkdir -p .claude/agents
 cp 04-subagents/*-CN.md .claude/agents/
 ```
@@ -319,18 +319,18 @@ cp 04-subagents/*-CN.md .claude/agents/
 #### 集成练习
 试试这个完整工作流：
 1. 用 MCP 获取一个 GitHub PR
-2. 让 Claude 把审查任务委派给 code-reviewer subagent
+2. 让 Claude 把审查任务委派给 code-reviewer 子代理
 3. 再用 hooks 自动运行测试
 
 #### 成功标准
 - [ ] 能通过 MCP 成功查询 GitHub 数据
-- [ ] Claude 会把复杂任务委派给 subagents
-- [ ] 你理解 MCP 和 subagents 的区别
-- [ ] 能把 MCP + subagents + hooks 组合进一个工作流
+- [ ] Claude 会把复杂任务委派给子代理
+- [ ] 你理解 MCP 和子代理的区别
+- [ ] 能把 MCP + 子代理 + hooks 组合进一个工作流
 
 #### 下一步
-- 配置更多 MCP servers（数据库、Slack 等）
-- 为你的领域创建自定义 subagents
+- 配置更多 MCP 服务器（数据库、Slack 等）
+- 为你的领域创建自定义子代理
 - 阅读：[05-mcp/README-CN.md](05-mcp/README-CN.md)
 - 阅读：[04-subagents/README-CN.md](04-subagents/README-CN.md)
 - **准备进入 Level 3！** 继续看 [里程碑 3A](#里程碑-3a高级功能)
@@ -352,8 +352,8 @@ cp 04-subagents/*-CN.md .claude/agents/
 
 - [ ] 会创建并自动触发 skills（[03-skills/README-CN.md](03-skills/README-CN.md)）
 - [ ] 会配置 hooks 做事件驱动自动化（[06-hooks/README-CN.md](06-hooks/README-CN.md)）
-- [ ] 会配置 MCP servers 访问外部数据（[05-mcp/README-CN.md](05-mcp/README-CN.md)）
-- [ ] 知道如何用 subagents 分派任务（[04-subagents/README-CN.md](04-subagents/README-CN.md)）
+- [ ] 会配置 MCP 服务器访问外部数据（[05-mcp/README-CN.md](05-mcp/README-CN.md)）
+- [ ] 知道如何用子代理分派任务（[04-subagents/README-CN.md](04-subagents/README-CN.md)）
 
 > **有空缺？** 继续之前，先回顾上面的链接教程。
 
@@ -396,7 +396,7 @@ claude --permission-mode auto "implement the feature"
 # 练习 4：高级 checkpoint 工作流
 # 1. 创建名为 "Clean state" 的 checkpoint
 # 2. 使用 planning mode 设计功能
-# 3. 通过 subagent 委派实现
+# 3. 通过子代理委派实现
 # 4. 在后台运行测试
 # 5. 如果测试失败，回退到 checkpoint
 # 6. 尝试另一种方案
@@ -458,7 +458,7 @@ export CLAUDE_AGENT_TEAMS=1
 # 练习 1：安装一个完整 plugin
 # 在 Claude Code 中：/plugin install pr-review
 
-# 练习 2：让 print mode 服务于 CI/CD
+# 练习 2：让打印模式服务于 CI/CD
 claude -p "Run all tests and generate report"
 
 # 练习 3：为脚本输出 JSON
@@ -614,19 +614,19 @@ done
 - [ ] 完成 [08-checkpoints](08-checkpoints/README-CN.md)
 - [ ] 完成 [10-cli](10-cli/README-CN.md) 基础部分
 - [ ] 创建并回退到一个 checkpoint
-- [ ] 使用交互模式和 print mode
+- [ ] 使用交互模式和打印模式
 - [ ] **达到里程碑 1B**
 
 ### 🔵 Level 2：Intermediate
 - [ ] 完成 [03-skills](03-skills/README-CN.md)
 - [ ] 完成 [06-hooks](06-hooks/README-CN.md)
-- [ ] 安装第一个 skill
+- [ ] 安装第一个 Skill
 - [ ] 设置 PreToolUse hook
 - [ ] **达到里程碑 2A**
 - [ ] 完成 [05-mcp](05-mcp/README-CN.md)
 - [ ] 完成 [04-subagents](04-subagents/README-CN.md)
 - [ ] 连接 GitHub MCP
-- [ ] 创建自定义 subagent
+- [ ] 创建自定义子代理
 - [ ] 把多个集成组合进一个工作流
 - [ ] **达到里程碑 2B**
 
@@ -640,7 +640,7 @@ done
 - [ ] **达到里程碑 3A**
 - [ ] 完成 [07-plugins](07-plugins/README-CN.md)
 - [ ] 完成 [10-cli](10-cli/README-CN.md) 的高级用法
-- [ ] 配置 print mode（`claude -p`）用于 CI/CD
+- [ ] 配置打印模式（`claude -p`）用于 CI/CD
 - [ ] 为自动化创建 JSON 输出
 - [ ] 把 Claude 集成到 CI/CD 流水线
 - [ ] 创建团队 plugin

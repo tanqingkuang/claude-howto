@@ -471,7 +471,7 @@ documentation/
 | `README-CN.md` | `/01-slash-commands/` | Slash Commands 指南 |
 | `README-CN.md` | `/02-memory/` | Memory 指南 |
 | `README-CN.md` | `/03-skills/` | Skills 指南 |
-| `README-CN.md` | `/04-subagents/` | Subagents 指南 |
+| `README-CN.md` | `/04-subagents/` | 子代理指南 |
 | `README-CN.md` | `/05-mcp/` | MCP 指南 |
 | `README-CN.md` | `/06-hooks/` | Hooks 指南 |
 | `README-CN.md` | `/07-plugins/` | Plugins 指南 |
@@ -659,7 +659,7 @@ claude-howto/
 # 安装 slash command
 cp 01-slash-commands/optimize-CN.md .claude/commands/
 
-# 安装 subagent
+# 安装子代理
 cp 04-subagents/code-reviewer-CN.md .claude/agents/
 
 # 安装 skill
@@ -682,7 +682,7 @@ cp -r 03-skills/code-review ~/.claude/skills/
 # 安装 slash command
 cp 01-slash-commands/generate-api-docs-CN.md .claude/commands/
 
-# 安装 subagent
+# 安装子代理
 cp 04-subagents/documentation-writer-CN.md .claude/agents/
 
 # 安装 skill
@@ -788,16 +788,16 @@ claude -p "Run tests and report results"
 ### 中级（第 2-3 周）
 
 1. ✅ 搭建 GitHub MCP
-2. ✅ 安装一个 subagent
+2. ✅ 安装一个子代理
 3. ✅ 尝试委派任务
-4. ✅ 安装一个 skill
+4. ✅ 安装一个 Skill
 
 ### 高级（第 4 周及以后）
 
 1. ✅ 安装完整插件
 2. ✅ 创建自定义 slash command
-3. ✅ 创建自定义 subagent
-4. ✅ 创建自定义 skill
+3. ✅ 创建自定义子代理
+4. ✅ 创建自定义 Skill
 5. ✅ 构建自己的插件
 
 ### 专家（第 5 周及以后）
@@ -834,7 +834,7 @@ claude -p "Run tests and report results"
 ### 文档
 
 - `01-slash-commands/generate-api-docs-CN.md` - API 文档命令
-- `04-subagents/documentation-writer-CN.md` - 文档编写 agent
+- `04-subagents/documentation-writer-CN.md` - 文档编写子代理
 - `03-skills/doc-generator/` - 文档生成 skill
 - `07-plugins/documentation/` - 完整文档插件
 

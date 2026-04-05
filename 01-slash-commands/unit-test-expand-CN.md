@@ -14,7 +14,7 @@ tags: testing, coverage, unit-tests
    - Jest/Vitest/Mocha（JavaScript/TypeScript）
    - pytest/unittest（Python）
    - Go testing/testify（Go）
-   - Rust test framework（Rust）
+   - Rust 测试框架（Rust）
 4. **针对具体场景**：
    - 错误处理和异常
    - 边界值（最小/最大、空值、空输入）
@@ -23,4 +23,3 @@ tags: testing, coverage, unit-tests
 5. **验证提升**：再次运行覆盖率，确认有可衡量的提升
 
 只展示新增的测试代码块。遵循现有测试模式和命名约定。
-

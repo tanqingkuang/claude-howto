@@ -9,16 +9,16 @@
 
 ## 介绍
 
-Claude Code 插件是把 slash commands、subagents、MCP servers 和 hooks 组合在一起的功能集合，可以通过一条命令安装。它们代表了 Claude Code 最高级别的扩展方式，把多个功能整合成可共享、可复用的完整方案。
+Claude Code 插件把斜杠命令、子代理、MCP 服务器和 Hooks 组合成一个整体，可以通过一条命令安装。它们代表了 Claude Code 最高级别的扩展方式，把多个能力整合成可共享、可复用的完整方案。
 
 ## 概览
 
 一个插件通常会把以下能力打包在一起：
 
-- slash commands
-- subagents
-- MCP servers
-- hooks
+- 斜杠命令
+- 子代理
+- MCP 服务器
+- Hooks
 
 这样做的好处是：
 
@@ -86,13 +86,13 @@ my-plugin/
 │   ├── specialist-1.md
 │   ├── specialist-2.md
 │   └── configs/
-├── skills/               # 带有 SKILL.md 文件的技能
+├── skills/               # 带有 SKILL.md 文件的 Skills
 │   ├── skill-1.md
 │   └── skill-2.md
 ├── hooks/                # hooks.json 中的事件处理器
 │   └── hooks.json
-├── .mcp.json             # MCP server 配置
-├── .lsp.json             # LSP server 配置
+├── .mcp.json             # MCP 服务器配置
+├── .lsp.json             # LSP 服务器配置
 ├── settings.json         # 默认设置
 ├── templates/
 │   └── issue-template.md
@@ -106,9 +106,9 @@ my-plugin/
     └── plugin.test.js
 ```
 
-### LSP server 配置
+### LSP 服务器配置
 
-插件可以包含 Language Server Protocol（LSP）支持，以获得实时代码智能。LSP server 会在你编写代码时提供诊断、代码导航和符号信息。
+插件可以包含 Language Server Protocol（LSP）支持，以获得实时代码智能。LSP 服务器会在你编写代码时提供诊断、代码导航和符号信息。
 
 **配置位置**：
 - 插件根目录中的 `.lsp.json` 文件
@@ -118,17 +118,17 @@ my-plugin/
 
 | 字段 | 必填 | 说明 |
 |------|------|------|
-| `command` | 是 | LSP server 可执行文件（必须在 PATH 中） |
+| `command` | 是 | LSP 服务器可执行文件（必须在 PATH 中） |
 | `extensionToLanguage` | 是 | 将文件扩展名映射到语言 ID |
-| `args` | 否 | server 的命令行参数 |
+| `args` | 否 | 服务器的命令行参数 |
 | `transport` | 否 | 通信方式：`stdio`（默认）或 `socket` |
-| `env` | 否 | server 进程的环境变量 |
+| `env` | 否 | 服务器进程的环境变量 |
 | `initializationOptions` | 否 | LSP 初始化期间发送的选项 |
-| `settings` | 否 | 传递给 server 的工作区配置 |
+| `settings` | 否 | 传递给服务器的工作区配置 |
 | `workspaceFolder` | 否 | 覆盖工作区文件夹路径 |
-| `startupTimeout` | 否 | 等待 server 启动的最长时间（毫秒） |
+| `startupTimeout` | 否 | 等待服务器启动的最长时间（毫秒） |
 | `shutdownTimeout` | 否 | 优雅关闭的最长时间（毫秒） |
-| `restartOnCrash` | 否 | server 崩溃时自动重启 |
+| `restartOnCrash` | 否 | 服务器崩溃时自动重启 |
 | `maxRestarts` | 否 | 放弃前的最大重启次数 |
 
 #### 示例配置
@@ -183,7 +183,7 @@ my-plugin/
 
 官方市场包含了预配置好的 LSP 插件：
 
-| 插件 | 语言 | Server Binary | 安装命令 |
+| 插件 | 语言 | 服务器二进制 | 安装命令 |
 |------|------|---------------|----------|
 | `pyright-lsp` | Python | `pyright-langserver` | `pip install pyright` |
 | `typescript-lsp` | TypeScript/JavaScript | `typescript-language-server` | `npm install -g typescript-language-server typescript` |
@@ -191,7 +191,7 @@ my-plugin/
 
 #### LSP 能力
 
-配置完成后，LSP server 会提供：
+配置完成后，LSP 服务器会提供：
 
 - **即时诊断** - 编辑后立即显示错误和警告
 - **代码导航** - 跳转到定义、查找引用和实现
@@ -277,7 +277,7 @@ my-plugin/
 | **独立命令** | `/hello` | 在 `CLAUDE.md` 中手动设置 | 个人、项目专用 |
 | **插件** | `/plugin-name:hello` | 通过 `plugin.json` 自动配置 | 共享、分发、团队使用 |
 
-对于快速的个人工作流，使用 **独立 slash commands**。当你想打包多个功能、与团队共享或者发布分发时，使用 **插件**。
+对于快速的个人工作流，使用 **独立斜杠命令**。当你想打包多个功能、与团队共享或者发布分发时，使用 **插件**。
 
 ## 实际示例
 
@@ -341,9 +341,9 @@ tools: read, grep, diff
 /plugin install pr-review
 
 # 结果：
-# ✅ 已安装 3 个 slash commands
-# ✅ 已配置 3 个 subagents
-# ✅ 已连接 2 个 MCP servers
+# ✅ 已安装 3 个斜杠命令
+# ✅ 已配置 3 个子代理
+# ✅ 已连接 2 个 MCP 服务器
 # ✅ 已注册 4 个 hooks
 # ✅ 可以直接使用！
 ```
@@ -569,7 +569,7 @@ graph LR
 
 ## 插件能力对比
 
-| 功能 | Slash Command | Skill | Subagent | Plugin |
+| 功能 | 斜杠命令 | Skill | 子代理 | 插件 |
 |------|---------------|-------|----------|--------|
 | **安装** | 手动复制 | 手动复制 | 手动配置 | 一条命令 |
 | **设置时间** | 5 分钟 | 10 分钟 | 15 分钟 | 2 分钟 |
@@ -626,7 +626,7 @@ claude --plugin-dir ./plugin-a --plugin-dir ./plugin-b
 ```mermaid
 graph TD
     A["我该创建插件吗？"]
-    A -->|需要多个组件| B{"多个命令<br/>或 subagents<br/>或 MCPs?"}
+    A -->|需要多个组件| B{"多个命令<br/>或子代理<br/>或 MCP 服务器?"}
     B -->|是| C["✅ 创建插件"]
     B -->|否| D["使用单独功能"]
     A -->|团队工作流| E{"要和<br/>团队共享吗？"}
@@ -646,7 +646,7 @@ graph TD
 | **企业规范** | ✅ 使用插件 | 集中分发，版本控制 |
 | **快速任务自动化** | ❌ 使用命令 | 太重 |
 | **单一领域能力** | ❌ 使用 Skill | 太重，直接用 skill 更合适 |
-| **专门化分析** | ❌ 使用 Subagent | 可手动创建，或用 skill |
+| **专门化分析** | ❌ 使用子代理 | 可手动创建，或用 skill |
 | **实时数据访问** | ❌ 使用 MCP | 独立使用，不要打包 |
 
 ## 测试插件
@@ -659,11 +659,11 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 ```
 
 这会用已加载插件启动 Claude Code，让你可以：
-- 验证所有 slash commands 是否可用
-- 测试 subagents 和 agents 是否正常工作
-- 确认 MCP servers 能正确连接
+- 验证所有斜杠命令是否可用
+- 测试子代理和 agents 是否正常工作
+- 确认 MCP 服务器能正确连接
 - 验证 hooks 的执行
-- 检查 LSP server 配置
+- 检查 LSP 服务器配置
 - 检查是否有配置错误
 
 ## 热重载
@@ -674,7 +674,7 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 /reload-plugins
 ```
 
-这会重新读取所有插件清单、commands、agents、skills、hooks 以及 MCP/LSP 配置，而无需重启会话。
+这会重新读取所有插件清单、斜杠命令、agents、skills、hooks 以及 MCP/LSP 配置，而无需重启会话。
 
 ## 插件托管设置
 
@@ -692,11 +692,11 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 
 ## 插件安全
 
-插件 subagents 运行在受限沙箱中。以下 frontmatter 键在插件 subagent 定义中**不允许**使用：
+插件子代理运行在受限沙箱中。以下 frontmatter 键在插件子代理定义中**不允许**使用：
 
-- `hooks` - subagents 不能注册事件处理器
-- `mcpServers` - subagents 不能配置 MCP servers
-- `permissionMode` - subagents 不能覆盖权限模型
+- `hooks` - 子代理不能注册事件处理器
+- `mcpServers` - 子代理不能配置 MCP 服务器
+- `permissionMode` - 子代理不能覆盖权限模型
 
 这可以确保插件不会越权，也不会修改主机环境的作用范围。
 
@@ -722,8 +722,8 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 包含安全、测试和文档检查的完整 PR 审查工作流。
 
 ## 包含内容
-- 3 个用于不同审查类型的 slash commands
-- 3 个专门化 subagents
+- 3 个用于不同审查类型的斜杠命令
+- 3 个专门化子代理
 - GitHub 和 CodeQL MCP 集成
 - 自动安全扫描 hooks
 
@@ -755,8 +755,8 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 ## 插件 vs 手动配置
 
 **手动设置（2+ 小时）：**
-- 逐个安装 slash commands
-- 单独创建 subagents
+- 逐个安装斜杠命令
+- 单独创建子代理
 - 分别配置 MCP
 - 手动设置 hooks
 - 记录所有内容
@@ -859,11 +859,11 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 
 以下 Claude Code 功能会和插件一起协作：
 
-- **[Slash Commands](../01-slash-commands/README-CN.md)** - 插件中打包的单独命令
-- **[Memory](../02-memory/README-CN.md)** - 插件的持久上下文
+- **[斜杠命令](../01-slash-commands/README-CN.md)** - 插件中打包的斜杠命令
+- **[记忆](../02-memory/README-CN.md)** - 插件的持久上下文
 - **[Skills](../03-skills/README-CN.md)** - 可以包装进插件的领域能力
-- **[Subagents](../04-subagents/README-CN.md)** - 作为插件组件包含的专门化 agent
-- **[MCP Servers](../05-mcp/README-CN.md)** - 打包在插件中的 Model Context Protocol 集成
+- **[子代理](../04-subagents/README-CN.md)** - 作为插件组件包含的专门化 agent
+- **[MCP 服务器](../05-mcp/README-CN.md)** - 打包在插件中的 Model Context Protocol 集成
 - **[Hooks](../06-hooks/README-CN.md)** - 触发插件工作流的事件处理器
 
 ## 完整示例工作流
@@ -876,9 +876,9 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 2. 插件执行：
    ├── pre-review.js hook 验证 git repo
    ├── GitHub MCP 获取 PR 数据
-   ├── security-reviewer subagent 分析安全
-   ├── test-checker subagent 验证覆盖率
-   └── performance-analyzer subagent 检查性能
+   ├── security-reviewer 子代理分析安全
+   ├── test-checker 子代理验证覆盖率
+   └── performance-analyzer 子代理检查性能
 
 3. 汇总并展示结果：
    ✅ 安全：没有发现关键问题
@@ -903,7 +903,7 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 
 ### MCP 连接失败
 - 确认环境变量已正确设置
-- 检查 MCP server 的安装和健康状态
+- 检查 MCP 服务器的安装和健康状态
 - 使用 `/mcp test` 独立测试 MCP 连接
 - 查看 `mcp/` 目录中的 MCP 配置
 
@@ -926,5 +926,14 @@ claude --plugin-dir ./my-plugin --plugin-dir ./another-plugin
 - [插件市场](https://code.claude.com/docs/en/plugin-marketplaces)
 - [插件参考](https://code.claude.com/docs/en/plugins-reference)
 - [MCP Server 参考](https://modelcontextprotocol.io/)
-- [Subagent 配置指南](../04-subagents/README-CN.md)
+- [子代理配置指南](../04-subagents/README-CN.md)
 - [Hook 系统参考](../06-hooks/README-CN.md)
+
+## 使用建议
+
+如果你是第一次接触插件，建议先从 `pr-review` 这类把多个能力打包在一起的示例入手，再看 `devops-automation` 这种更偏生产流程的插件。这样更容易理解插件如何把命令、agent、MCP 和 hooks 组合成一个可安装、可共享、可维护的整体。
+
+- 先看 `plugin.json`，再看各个组件目录
+- 先从一个小插件开始，再逐步加入更多能力
+- 把高频、可复用的工作流优先整理成插件
+- 在团队范围内分发之前，先在本地验证安装和升级流程
