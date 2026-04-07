@@ -7,7 +7,7 @@
 
 ## 🚀 安装速命令
 
-### Slash Commands
+### 斜杠命令
 ```bash
 # 安装全部
 cp 01-slash-commands/*-CN.md .claude/commands/
@@ -27,14 +27,14 @@ cp 02-memory/personal-CLAUDE-CN.md ~/.claude/CLAUDE.md
 
 ### Skills
 ```bash
-# 个人 skills
+# 个人 Skills
 cp -r 03-skills/code-review ~/.claude/skills/
 
-# 项目 skills
+# 项目 Skills
 cp -r 03-skills/code-review .claude/skills/
 ```
 
-### Subagents
+### 子代理
 ```bash
 # 安装全部
 cp 04-subagents/*-CN.md .claude/agents/
@@ -113,10 +113,10 @@ claude -r "session"    # 按名称/ID 恢复会话
 
 | 功能 | 安装路径 | 用法 |
 |------|----------|------|
-| **Slash Commands（55+）** | `.claude/commands/*.md` | `/command-name` |
+| **斜杠命令（55+）** | `.claude/commands/*.md` | `/command-name` |
 | **Memory** | `./CLAUDE.md` | 自动加载 |
 | **Skills** | `.claude/skills/*/SKILL.md` | 自动触发 |
-| **Subagents** | `.claude/agents/*.md` | 自动委派 |
+| **子代理** | `.claude/agents/*.md` | 自动委派 |
 | **MCP** | `.mcp.json`（项目）或 `~/.claude.json`（用户） | `/mcp__server__action` |
 | **Hooks（25 个事件）** | `~/.claude/hooks/*.sh` | 事件触发（4 类） |
 | **Plugins** | 通过 `/plugin install` | 打包所有能力 |
@@ -142,11 +142,11 @@ claude -r "session"    # 按名称/ID 恢复会话
 cp 01-slash-commands/optimize-CN.md .claude/commands/
 # 使用：/optimize
 
-# 方法 2：subagent
+# 方法 2：子代理
 cp 04-subagents/code-reviewer-CN.md .claude/agents/
 # 使用：自动委派
 
-# 方法 3：skill
+# 方法 3：Skill
 cp -r 03-skills/code-review ~/.claude/skills/
 # 使用：自动触发
 
@@ -160,10 +160,10 @@ cp -r 03-skills/code-review ~/.claude/skills/
 # slash command
 cp 01-slash-commands/generate-api-docs-CN.md .claude/commands/
 
-# subagent
+# 子代理
 cp 04-subagents/documentation-writer-CN.md .claude/agents/
 
-# skill
+# Skill
 cp -r 03-skills/doc-generator ~/.claude/skills/
 
 # 插件（完整方案）
@@ -274,8 +274,8 @@ export CLAUDE_AGENT_TEAMS=1
 Your Project/
 ├── .claude/
 │   ├── commands/              # Slash commands 放这里
-│   ├── agents/                # Subagents 放这里
-│   ├── skills/                # 项目 skills 放这里
+│   ├── agents/                # 子代理放这里
+│   ├── skills/                # 项目 Skills 放这里
 │   └── settings.json          # 项目设置（hooks 等）
 ├── .mcp.json                  # MCP 配置（项目级）
 ├── CLAUDE.md                  # 项目 memory
@@ -287,7 +287,7 @@ User Home/
 ├── .claude/
 │   ├── commands/              # 个人命令
 │   ├── agents/                # 个人 agents
-│   ├── skills/                # 个人 skills
+│   ├── skills/                # 个人 Skills
 │   ├── hooks/                 # hook 脚本
 │   ├── settings.json          # 用户设置
 │   ├── managed-settings.d/    # 托管设置（企业/组织）
@@ -300,10 +300,10 @@ User Home/
 ## 🔍 查找示例
 
 ### 按分类
-- **Slash Commands**：`01-slash-commands/`
+- **斜杠命令**：`01-slash-commands/`
 - **Memory**：`02-memory/`
 - **Skills**：`03-skills/`
-- **Subagents**：`04-subagents/`
+- **子代理**：`04-subagents/`
 - **MCP**：`05-mcp/`
 - **Hooks**：`06-hooks/`
 - **Plugins**：`07-plugins/`
@@ -320,7 +320,7 @@ User Home/
 
 ### 按复杂度
 - **简单**：Slash commands
-- **中等**：Subagents、Memory
+- **中等**：子代理、Memory
 - **高级**：Skills、Hooks
 - **完整**：Plugins
 
@@ -346,7 +346,7 @@ cp 01-slash-commands/optimize-CN.md .claude/commands/
 cp 02-memory/project-CLAUDE-CN.md ./CLAUDE.md
 vim CLAUDE.md
 
-# 安装 subagent
+# 安装子代理
 cp 04-subagents/code-reviewer-CN.md .claude/agents/
 ```
 
@@ -362,7 +362,7 @@ cp 05-mcp/github-mcp.json .mcp.json
 
 ### 第 2 周
 ```bash
-# 安装 skill
+# 安装 Skill
 cp -r 03-skills/code-review ~/.claude/skills/
 
 # 让它自动触发
@@ -390,7 +390,7 @@ cp -r 03-skills/code-review ~/.claude/skills/
 | **Channels** | Discord 和 Telegram 集成 | `--channels` 参数，Discord / Telegram bot |
 | **Voice Dictation** | 对 Claude 说出命令和上下文 | `/voice` 命令 |
 | **Hooks（25 个事件）** | 扩展后的 hook 系统，包含 4 类 | command、http、prompt、agent hook 类型 |
-| **MCP Elicitation** | MCP server 可在运行时请求用户输入 | 当 server 需要澄清时自动提示 |
+| **MCP Elicitation** | MCP 服务器可在运行时请求用户输入 | 当服务器需要澄清时自动提示 |
 | **WebSocket MCP** | MCP 的 WebSocket 传输 | 在 `.mcp.json` 中配置 `ws://` URL |
 | **Plugin LSP** | 插件支持 Language Server Protocol | `userConfig`、`${CLAUDE_PLUGIN_DATA}` 变量 |
 | **Remote Control** | 通过 WebSocket API 控制 Claude Code | `claude --remote` 用于外部集成 |
@@ -418,8 +418,8 @@ cp -r 03-skills/code-review ~/.claude/skills/
 ### 最佳实践
 - 用 memory 保存团队规范
 - 用 plugins 做完整工作流
-- 用 subagents 处理复杂任务
-- 用 slash commands 处理快速任务
+- 用子代理处理复杂任务
+- 用斜杠命令处理快速任务
 
 ### 故障排查
 ```bash
@@ -443,7 +443,7 @@ echo $GITHUB_TOKEN
 | 快速快捷操作 | Slash Command（55+） | `01-slash-commands/optimize-CN.md` |
 | 团队规范 | Memory | `02-memory/project-CLAUDE-CN.md` |
 | 自动化工作流 | Skill | `03-skills/code-review/` |
-| 专门任务 | Subagent | `04-subagents/code-reviewer-CN.md` |
+| 专门任务 | 子代理 | `04-subagents/code-reviewer-CN.md` |
 | 外部数据 | MCP（+ Elicitation、WebSocket） | `05-mcp/github-mcp.json` |
 | 事件自动化 | Hook（25 个事件、4 类） | `06-hooks/pre-commit.sh` |
 | 完整方案 | Plugin（+ LSP 支持） | `07-plugins/pr-review/` |
@@ -466,7 +466,7 @@ echo $GITHUB_TOKEN
 ## 📞 常见问题
 
 **问：我应该先用哪个？**
-答：先从 slash commands 开始，按需逐步添加功能。
+答：先从斜杠命令开始，按需逐步添加功能。
 
 **问：我可以混用多个功能吗？**
 答：可以！它们可以一起工作。Memory + Commands + MCP 很强大。
@@ -490,9 +490,9 @@ echo $GITHUB_TOKEN
 - [ ] 安装 1 个 slash command
 - [ ] 试用该命令
 - [ ] 创建项目 `CLAUDE.md`
-- [ ] 安装 1 个 subagent
+- [ ] 安装 1 个子代理
 - [ ] 配置 1 个 MCP 集成
-- [ ] 安装 1 个 skill
+- [ ] 安装 1 个 Skill
 - [ ] 试用一个完整插件
 - [ ] 按你的需求定制
 - [ ] 与团队共享

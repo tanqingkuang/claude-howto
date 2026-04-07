@@ -12,7 +12,7 @@
 | Claude Code 文档 | Claude Code 官方文档 | [code.claude.com/docs/en/overview](https://code.claude.com/docs/en/overview) |
 | Anthropic 文档 | Anthropic 完整文档 | [docs.anthropic.com](https://docs.anthropic.com) |
 | MCP Protocol | Model Context Protocol 规范 | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
-| MCP Servers | 官方 MCP server 实现 | [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) |
+| MCP Servers | 官方 MCP 服务器实现 | [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) |
 | Anthropic Cookbook | 代码示例和教程 | [github.com/anthropics/anthropic-cookbook](https://github.com/anthropics/anthropic-cookbook) |
 | Claude Code Skills | 社区技能仓库 | [github.com/anthropics/skills](https://github.com/anthropics/skills) |
 | Agent Teams | 多 agent 协作与协调 | [code.claude.com/docs/en/agent-teams](https://code.claude.com/docs/en/agent-teams) |
@@ -168,7 +168,7 @@ graph TD
 
 4. **团队工具和自动化**
    - 通过 `.claude/commands/` 同步自定义命令，保持团队一致性。
-   - 用 Claude 的 slash commands 或 hooks 自动化重复任务、PR 创建和代码格式化。
+   - 用 Claude 的斜杠命令或 hooks 自动化重复任务、PR 创建和代码格式化。
    - 与团队成员共享会话和上下文，便于协作排障和审查。
 
 ```mermaid
@@ -202,7 +202,7 @@ graph TD
 
     S --> T[Setup Team Automation]
     T --> U[Sync .claude/commands/]
-    U --> V[Configure Slash Commands]
+    U --> V[配置斜杠命令]
     V --> W[Setup Hooks for Automation]
     W --> X[Share Session Context with Team]
 
@@ -242,7 +242,7 @@ graph TD
 | **Permission Modes** | 精细权限控制：default、acceptEdits、plan、auto、dontAsk、bypassPermissions | [高级功能](09-advanced-features/README-CN.md) |
 | **7-Tier Memory** | Managed Policy、Project、Project Rules、User、User Rules、Local、Auto Memory | [记忆指南](02-memory/README-CN.md) |
 | **Hook Events** | 25 个事件：PreToolUse、PostToolUse、PostToolUseFailure、Stop、StopFailure、SubagentStart、SubagentStop、Notification、Elicitation 等 | [Hooks 指南](06-hooks/README-CN.md) |
-| **Agent Teams** | 协调多个 agent 共同处理复杂任务 | [Subagents 指南](04-subagents/README-CN.md) |
+| **Agent Teams** | 协调多个 agent 共同处理复杂任务 | [子代理指南](04-subagents/README-CN.md) |
 | **Scheduled Tasks** | 用 `/loop` 和 cron 工具设置周期性任务 | [高级功能](09-advanced-features/README-CN.md) |
 | **Chrome Integration** | 使用无头 Chromium 做浏览器自动化 | [高级功能](09-advanced-features/README-CN.md) |
 | **Keyboard Customization** | 自定义按键绑定，包括组合键序列 | [高级功能](09-advanced-features/README-CN.md) |

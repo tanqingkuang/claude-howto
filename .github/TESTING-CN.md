@@ -4,13 +4,13 @@
 
 ## 概览
 
-项目使用 GitHub Actions 在每次 push 和 pull request 时自动运行测试。测试覆盖：
+项目使用 GitHub Actions 在每次 push 和 PR 时自动运行测试。测试覆盖：
 
-- **单元测试**：使用 pytest 的 Python 测试
+- **单元测试**：基于 pytest 的 Python 单元测试
 - **代码质量**：使用 Ruff 做 lint 和格式化
 - **安全**：使用 Bandit 做漏洞扫描
 - **类型检查**：使用 mypy 做静态类型分析
-- **构建验证**：EPUB 生成测试
+- **构建验证**：EPUB 生成检查
 
 ## 在本地运行测试
 
@@ -100,7 +100,7 @@ mypy scripts/ --ignore-missing-imports --no-implicit-optional
 ### 触发条件
 
 - 推送到 `main` 或 `develop` 分支（当 `scripts` 有变更时）
-- 向 `main` 提交 Pull Request（当 `scripts` 有变更时）
+- 向 `main` 提交 PR（当 `scripts` 有变更时）
 - 手动触发 workflow
 
 ### 作业
@@ -239,18 +239,18 @@ open htmlcov/index.html
 - **分支覆盖率**：启用
 - **重点区域**：核心功能和错误路径
 
-## Pre-commit Hooks
+## Pre-commit 钩子
 
-项目使用 pre-commit hooks 在每次提交前自动运行检查：
+项目使用 pre-commit 钩子在每次提交前自动运行检查：
 
 ```bash
-# 安装 pre-commit hooks
+# 安装 pre-commit 钩子
 pre-commit install
 
-# 手动运行 hooks
+# 手动运行钩子
 pre-commit run --all-files
 
-# 跳过某次提交的 hooks（不推荐）
+# 跳过某次提交的钩子（不推荐）
 git commit --no-verify
 ```
 

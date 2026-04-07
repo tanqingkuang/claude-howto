@@ -18,8 +18,8 @@ allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*), Bash(git
 ### 2. 安全检查
 
 **❌ 如果发现以下内容，立即停止并警告：**
-- Secrets：`.env*`、`*.key`、`*.pem`、`credentials.json`、`secrets.yaml`、`id_rsa`、`*.p12`、`*.pfx`、`*.cer`
-- API Keys：任何 `*_API_KEY`、`*_SECRET`、`*_TOKEN` 变量包含真实值，而不是占位符，如 `your-api-key`、`xxx`、`placeholder`
+- 密钥文件：`.env*`、`*.key`、`*.pem`、`credentials.json`、`secrets.yaml`、`id_rsa`、`*.p12`、`*.pfx`、`*.cer`
+- API 密钥：任何 `*_API_KEY`、`*_SECRET`、`*_TOKEN` 变量包含真实值，而不是占位符，如 `your-api-key`、`xxx`、`placeholder`
 - 大文件：`>10MB` 且未使用 Git LFS
 - 构建产物：`node_modules/`、`dist/`、`build/`、`__pycache__/`、`*.pyc`、`.venv/`
 - 临时文件：`.DS_Store`、`thumbs.db`、`*.swp`、`*.tmp`
@@ -53,7 +53,7 @@ SECRET=${YOUR_SECRET}
 - X 个文件已修改，Y 个文件已新增，Z 个文件已删除
 - 总计：+AAA 行新增，-BBB 行删除
 
-🔒 安全性：✅ 无 secrets | ✅ 无大文件 | ⚠️ [警告]
+🔒 安全性：✅ 无密钥 | ✅ 无大文件 | ⚠️ [警告]
 🌿 分支： [name] → origin/[name]
 
 我将执行：git add . → commit → push
@@ -119,7 +119,7 @@ Files changed: X (+insertions, -deletions)
 ## 错误处理
 
 - `git add` 失败：检查权限、锁定文件，确认仓库已初始化
-- `git commit` 失败：修复 pre-commit hooks，检查 git 配置（user.name/email）
+- `git commit` 失败：修复 pre-commit 钩子，检查 git 配置（user.name/email）
 - `git push` 失败：
   - 非快进：`git pull --rebase && git push`
   - 没有远程分支：`git push -u origin [branch]`
@@ -136,11 +136,11 @@ Files changed: X (+insertions, -deletions)
 
 ❌ **避免：**
 - 不确定要提交哪些内容
-- 包含 secrets/敏感数据
+- 包含密钥或敏感数据
 - 受保护分支且未经过审核
 - 存在合并冲突
 - 想保留更细粒度的提交历史
-- pre-commit hooks 失败
+- pre-commit 钩子失败
 
 ## 替代方案
 
@@ -150,4 +150,3 @@ Files changed: X (+insertions, -deletions)
 3. **PR 工作流**：创建分支 → 推送 → 发起 PR（使用 `/pr` 命令）
 
 **⚠️ 记住**：在推送前始终先检查变更。拿不准时，使用单独的 git 命令会更可控。
-

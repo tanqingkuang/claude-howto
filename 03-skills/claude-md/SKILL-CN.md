@@ -1,6 +1,6 @@
 ---
 name: claude-md
-description: 按最佳实践创建或更新 CLAUDE.md 文件，以便为 AI agent 提供最优的项目入门上下文
+description: 按最佳实践创建或更新 CLAUDE.md 文件，以便为 AI 代理提供最优的项目入门上下文
 ---
 
 ## 用户输入
@@ -17,7 +17,7 @@ $ARGUMENTS
 
 ## 核心原则
 
-**LLM 是无状态的**：CLAUDE.md 是每次对话中唯一会自动包含的文件。它是让 AI agent 了解代码库的主要入门文档。
+**LLM 是无状态的**：CLAUDE.md 是每次对话中唯一会自动包含的文件。它是让 AI 代理了解代码库的主要入门文档。
 
 ### 黄金法则
 
@@ -27,7 +27,7 @@ $ARGUMENTS
 
 3. **不要把 Claude 当成 lint 工具**：风格指南会膨胀上下文并降低指令遵循效果。应改用确定性工具（如 prettier、eslint 等）。
 
-4. **绝不自动生成**：CLAUDE.md 是 AI harness 中杠杆最高的位置。应该经过认真思考后手工编写。
+4. **绝不自动生成**：CLAUDE.md 是 AI 运行环境中杠杆最高的位置。应该经过认真思考后手工编写。
 
 ## 执行流程
 

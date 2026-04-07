@@ -30,7 +30,7 @@
 - [ ] 没有重复代码
 - [ ] 错误处理合理
 - [ ] 注释解释的是 WHY，而不是 WHAT
-- [ ] 生产环境中没有 console.log
+- [ ] 生产环境中没有残留的 `console.log`
 - [ ] 有类型检查（TypeScript / JSDoc）
 - [ ] 遵循 SOLID 原则
 - [ ] 正确应用设计模式

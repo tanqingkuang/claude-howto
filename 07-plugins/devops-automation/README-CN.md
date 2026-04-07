@@ -1,6 +1,6 @@
 ---
 name: DevOps 自动化插件
-description: 为部署、监控和故障处理提供自动化工作流
+description: 为部署、监控和事故响应提供自动化工作流
 tags: plugins, devops, automation
 ---
 
@@ -25,12 +25,12 @@ tags: plugins, devops, automation
 ## 包含内容
 
 ### Slash 命令
-- `/deploy` - 部署到生产或预发环境
+- `/deploy` - 部署到生产或预发布环境
 - `/rollback` - 回滚到上一个版本
-- `/status` - 检查系统健康
+- `/status` - 检查系统健康状况
 - `/incident` - 处理生产事故
 
-### 子 agents
+### 子代理
 - `deployment-specialist` - 部署操作
 - `incident-commander` - 事故协调
 - `alert-analyzer` - 系统健康分析
@@ -49,7 +49,7 @@ tags: plugins, devops, automation
 
 ## 使用
 
-### 部署到预发环境
+### 部署到预发布环境
 
 ```
 /deploy staging
@@ -83,7 +83,7 @@ tags: plugins, devops, automation
 
 - Claude Code 1.0+
 - Kubernetes CLI（kubectl）
-- 已配置集群访问
+- 已配置集群访问权限
 
 ## 配置
 
@@ -100,15 +100,19 @@ export KUBECONFIG=~/.kube/config
 
 Claude:
 1. 运行 pre-deploy hook（验证 kubectl 和集群连接）
-2. 将部署委派给 deployment-specialist subagent
+2. 将部署委派给 `deployment-specialist` 子代理
 3. 运行 deploy.sh 脚本
 4. 通过 Kubernetes MCP 监控部署进度
-5. 运行 post-deploy hook（等待 pods 就绪，执行 smoke tests）
-6. 提供部署总结
+5. 运行 post-deploy hook（等待 Pod 就绪，执行冒烟测试）
+6. 提供部署摘要
 
 结果：
 ✅ 部署完成
 📦 版本：v2.1.0
-🚀 Pods：3/3 已就绪
+🚀 Pod：3/3 已就绪
 ⏱️  用时：2m 34s
 ```
+
+## 使用建议
+
+这个插件更适合已经明确区分生产环境和预发布环境、并且需要标准化发布流程的团队。先在预发布环境里把部署、回滚和事故处理跑顺，再推广到生产环境，会更安全，也更容易排查问题。

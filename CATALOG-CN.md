@@ -5,7 +5,7 @@
 
 # Claude Code 功能目录
 
-> 一份关于 Claude Code 所有功能的快速参考：命令、agents、skills、plugins 和 hooks。
+> 一份关于 Claude Code 所有功能的快速参考：命令、agents、Skills、插件和 hooks。
 
 **导航**: [命令](#斜杠命令) | [权限模式](#权限模式) | [Subagents](#subagents) | [Skills](#skills) | [Plugins](#plugins) | [MCP Servers](#mcp-servers) | [Hooks](#hooks) | [Memory](#memory-files) | [2026 年 3 月新功能](#2026-年-3-月新功能)
 
@@ -47,7 +47,7 @@
 | `/insights` | 分析会话模式 | 优化会话使用 |
 | `/install-slack-app` | 安装 Claude Slack 应用 | Slack 集成 |
 | `/keybindings` | 自定义键盘快捷键 | 按键定制 |
-| `/mcp` | 列出 MCP servers | 检查外部集成 |
+| `/mcp` | 列出 MCP 服务器 | 检查外部集成 |
 | `/memory` | 查看已加载的 memory 文件 | 调试上下文加载 |
 | `/mobile` | 生成移动端二维码 | 手机访问 |
 | `/passes` | 查看使用通行证 | 订阅信息 |
@@ -240,7 +240,7 @@ cp -r 03-skills/* ~/.claude/skills/
 
 ## Plugins
 
-把 commands、agents、MCP servers 和 hooks 打包在一起的集合。
+把 commands、agents、MCP 服务器和 hooks 打包在一起的集合。
 
 ### 示例 Plugins
 
@@ -279,7 +279,7 @@ cp -r 03-skills/* ~/.claude/skills/
 
 ## MCP Servers
 
-用于访问外部工具和 API 的 Model Context Protocol servers。
+用于访问外部工具和 API 的 Model Context Protocol 服务器。
 
 ### 常见 MCP Servers
 
@@ -352,7 +352,7 @@ export GITHUB_TOKEN="your_token" && claude mcp add github -- npx -y @modelcontex
 | `PostCompact` | 压缩完成后 | 压缩完成 | 压缩后动作 |
 | `WorktreeCreate` | worktree 创建中 | git worktree 创建 | 设置 worktree 环境 |
 | `WorktreeRemove` | worktree 被移除 | git worktree 删除 | 清理 worktree 资源 |
-| `Elicitation` | MCP server 请求输入 | MCP elicitation | 输入校验 |
+| `Elicitation` | MCP 服务器请求输入 | MCP elicitation | 输入校验 |
 | `ElicitationResult` | 用户响应 elicitation | 用户回答 | 响应处理 |
 | `SessionEnd` | 会话结束 | 会话终止 | 清理、保存状态 |
 
@@ -440,7 +440,7 @@ cp 02-memory/personal-CLAUDE-CN.md ~/.claude/CLAUDE.md
 | **Prompt Suggestions** | 上下文感知的命令建议 | 根据当前上下文自动出现建议 |
 | **Git Worktrees** | 用于并行开发的隔离 git worktree | 使用 worktree 命令进行安全的并行分支工作 |
 | **Sandboxing** | 安全隔离的执行环境 | 使用 `/sandbox` 切换，在受限环境中运行命令 |
-| **MCP OAuth** | 为 MCP servers 提供 OAuth 认证 | 在 MCP server 设置中配置 OAuth 凭据以安全访问 |
+| **MCP OAuth** | 为 MCP 服务器提供 OAuth 认证 | 在 MCP 服务器设置中配置 OAuth 凭据以安全访问 |
 | **MCP Tool Search** | 动态搜索和发现 MCP 工具 | 使用工具搜索查找已连接 server 上可用的 MCP 工具 |
 | **Scheduled Tasks** | 使用 `/loop` 和 cron 工具设置周期任务 | 使用 `/loop 5m /command` 或 CronCreate 工具 |
 | **Chrome Integration** | 使用无头 Chromium 做浏览器自动化 | 使用 `--chrome` 标志或 `/chrome` 命令 |
@@ -448,10 +448,10 @@ cp 02-memory/personal-CLAUDE-CN.md ~/.claude/CLAUDE.md
 | **自动模式（Auto Mode）** | 无需权限提示的完全自主运行（Research Preview） | 使用 `--mode auto` 或 `/permissions auto`；2026 年 3 月 |
 | **通道（Channels）** | 多通道通信（Telegram、Slack 等）（Research Preview） | 配置 channel plugins；2026 年 3 月 |
 | **语音输入（Voice Dictation）** | 用语音输入提示词 | 使用麦克风图标或语音快捷键 |
-| **Agent Hook Type** | 触发 subagent 而不是执行 shell 命令的 hook | 在 hook 配置中设置 `"type": "agent"` |
+| **Agent Hook Type** | 触发子代理而不是执行 shell 命令的 hook | 在 hook 配置中设置 `"type": "agent"` |
 | **Prompt Hook Type** | 将 prompt 文本注入对话的 hook | 在 hook 配置中设置 `"type": "prompt"` |
-| **MCP Elicitation** | MCP servers 可在工具执行期间请求用户输入 | 通过 `Elicitation` 和 `ElicitationResult` hook 事件处理 |
-| **WebSocket MCP Transport** | 用 WebSocket 连接 MCP server | 在 MCP server 配置中使用 `"transport": "websocket"` |
+| **MCP Elicitation** | MCP 服务器可在工具执行期间请求用户输入 | 通过 `Elicitation` 和 `ElicitationResult` hook 事件处理 |
+| **WebSocket MCP Transport** | 用 WebSocket 连接 MCP 服务器 | 在 MCP 服务器配置中使用 `"transport": "websocket"` |
 | **Plugin LSP Support** | 通过 plugins 集成 Language Server Protocol | 在 `plugin.json` 中配置 LSP servers，以获得编辑器能力 |
 | **Managed Drop-ins** | 组织管理的 drop-in 配置（v2.1.83） | 通过 managed policies 由管理员配置，自动应用到所有用户 |
 
